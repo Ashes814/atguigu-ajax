@@ -52,6 +52,21 @@ app.all("/axios-server", (request, response) => {
   const data = { name: "axios test" };
   response.send(JSON.stringify(data));
 });
+app.get("/jsonp-server", (request, response) => {
+  let data = JSON.stringify({ name: "axios test" });
+  response.end(`handle(${data})`);
+});
+
+app.all("/check-username", (request, response) => {
+  const data = {
+    exist: 1,
+    msg: "用户名已经存在",
+  };
+
+  let str = JSON.stringify(data);
+
+  response.end(`handle(${str})`);
+});
 
 // listen port
 app.listen(8000, () => {
