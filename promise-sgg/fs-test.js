@@ -1,18 +1,8 @@
+const util = require("util");
 const fs = require("fs");
 
-let p = new Promise((resolve, rejcet) => {
-  fs.readFile("./promise-sgg/content.txt", (err, data) => {
-    if (err) rejcet(err);
-
-    resolve(data);
-  });
+// 返回一个新的函数，这个函数返回的结果是一个promise，可以直接使用then
+let mineReadFile = util.promisify(fs.readFile);
+mineReadFile("./promise-sgg/content.txt").then((value) => {
+  console.log(value.toString());
 });
-
-p.then(
-  (value) => {
-    console.log(value.toString());
-  },
-  (reason) => {
-    throw reason;
-  }
-);
