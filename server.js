@@ -36,6 +36,23 @@ app.get("/delay", (request, response) => {
   }, 3000);
 });
 
+app.all("/jquery-server", (request, response) => {
+  // set response header 设置允许跨域
+  response.setHeader("Access-Control-Allow-Origin", "*");
+
+  const data = { name: "atguigu" };
+  response.send(JSON.stringify(data));
+});
+
+app.all("/axios-server", (request, response) => {
+  // set response header 设置允许跨域
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Headers", "*");
+
+  const data = { name: "axios test" };
+  response.send(JSON.stringify(data));
+});
+
 // listen port
 app.listen(8000, () => {
   console.log("Service has been initialized, 8000 is listening.");

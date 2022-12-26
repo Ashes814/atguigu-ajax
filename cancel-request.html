@@ -24,15 +24,22 @@
       const result = document.getElementById("result");
       let xhr = null;
 
+      // mark variable
+      let isSending = false; // if web is sending ajax request
+
       btn1.onclick = function () {
+        if (isSending) {
+          xhr.abort();
+        }
         xhr = new XMLHttpRequest();
+        isSending = true;
         xhr.open("GET", "http://127.0.0.1:8000/delay");
         xhr.send();
         xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4)
-            if (xhr.status >= 200 && xhr.status < 300) {
-              result.innerHTML = xhr.response;
-            }
+          if (xhr.readyState == 4) isSending = false;
+          if (xhr.status >= 200 && xhr.status < 300) {
+            result.innerHTML = xhr.response;
+          }
         };
       };
 
