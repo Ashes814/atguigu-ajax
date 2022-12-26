@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="page-header">First Promise</h2>
+      <button class="btn btn-primary" id="btn">click to start</button>
+    </div>
+
+    <script>
+      function rand(m, n) {
+        return Math.ceil(Math.random() * (n - m + 1)) + m - 1;
+      }
+
+      const btn = document.querySelector("#btn");
+
+      // Promise
+      // resolve -- [func]
+      // reject -- [func]
+      btn.addEventListener("click", function () {
+        const p = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let n = rand(1, 100);
+            if (n <= 30) {
+              resolve(n);
+            } else {
+              reject(n);
+            }
+          }, 1000);
+        });
+
+        p.then(
+          (value) => {
+            alert("!!!!!666" + value);
+          },
+          (reason) => {
+            alert("XXXX no" + reason);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
