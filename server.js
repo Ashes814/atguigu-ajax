@@ -19,12 +19,21 @@ app.all("/json-server", (request, response) => {
   response.setHeader("Access-Control-Allow-Headers", "*");
 
   const data = {
-    name: "atguigu8848",
+    name: "atguigu",
   };
 
   let str = JSON.stringify(data);
   // set response body
   response.send(str);
+});
+
+app.get("/delay", (request, response) => {
+  // set response header 设置允许跨域
+  response.setHeader("Access-Control-Allow-Origin", "*");
+
+  setTimeout(() => {
+    response.send("delay time");
+  }, 3000);
 });
 
 // listen port
