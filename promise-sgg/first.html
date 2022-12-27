@@ -13,26 +13,24 @@
     </div>
 
     <script>
-      function sendAJAX(path) {
-        return new Promise((resolve, reject) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open("GET", path);
-          xhr.send();
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-              if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.response);
-              }
-              reject(xhr.status);
-            }
-          };
-        });
-      }
+      let p = new Promise((resolve, reject) => {
+        // 1. resolve函数
+        resolve("ok"); //pending => fulfilled (resolved)
 
-      sendAJAX("https://restcountries.com/v3.1/all").then(
-        (value) => console.log(value),
-        (reason) => console.warn(reason)
-      );
+        // 2. reject函数
+        // reject("not ok"); //pending => rejected
+
+        // 3. throw error
+        // throw err;
+      });
+
+      p.then((value) => {
+        console.log(value);
+      });
+
+      p.then((value) => {
+        alert(value);
+      });
     </script>
   </body>
 </html>
