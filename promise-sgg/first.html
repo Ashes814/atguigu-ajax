@@ -14,16 +14,37 @@
     </div>
 
     <script>
+      // debugger;
       let p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("error");
+          // reject("fail");
+        }, 1000);
         // resolve("ok");
-        throw "error";
+        // reject("fail");
+        // throw "fassil";
       });
 
-      console.log(p);
+      // console.log(p);
 
-      p.then((result) => {
-        console.log(result);
-      });
+      // const res = p.then(
+      //   (result) => {
+      //     console.log(result);
+      //     // return "oh year";
+      //     // return new Promise((resolve, reject) => {
+      //     //   reject("oh no");
+      //     // });
+      //     // throw "Fail";
+      //   },
+      //   (reason) => {
+      //     console.warn(reason);
+      //     // throw "err";
+      //     // console.warn(reason);
+      //   }
+      );
+
+      console.log(res);
+      // console.log(p);
     </script>
   </body>
 </html>
