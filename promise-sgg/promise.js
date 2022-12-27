@@ -7,7 +7,7 @@ class Promise {
     this.callbacks = [];
     // resolve function
     // Notice !!!this!!
-    resolve = (data) => {
+    const resolve = (data) => {
       // 判断状态
       if (this.PromiseState !== "pending") return;
       // 1.修改对象状态 （promiseState）
@@ -24,7 +24,7 @@ class Promise {
     };
 
     // reject function
-    reject = (data) => {
+    const reject = (data) => {
       // 判断状态
       if (this.PromiseState !== "pending") return;
       // 1.修改对象状态 （promiseState）

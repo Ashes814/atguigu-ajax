@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ajax</title>
-    <script src="./promise.js"></script>
+    <!-- <script src="./promise.js"></script> -->
   </head>
   <body>
     <div class="container">
@@ -14,18 +14,20 @@
     </div>
 
     <script>
-      // debugger;
+      // // debugger;
       // let p = new Promise((resolve, reject) => {
       //   setTimeout(() => {
       //     resolve("ok");
-      //     // reject("fail");
+      //     //     // reject("fail");
       //   }, 1000);
+      // });
+      // console.log(p);
       //   // resolve("ok");
       //   // reject("fail");
       //   // throw "fassil";
       // });
-      const p = Promise.resolve("ok");
-      console.log(p);
+      // const p = Promise.resolve("ok");
+      // console.log(p);
       // console.log(p);
 
       // let res = p
@@ -60,8 +62,25 @@
       //     // console.warn(reason);
       //   }
 
-      // console.log(res);
       // console.log(p);
+      async function main() {
+        let p = new Promise((resolve, reject) => {
+          reject("ok");
+        });
+        // 1. 右侧为promise的情况
+        // let res = await p;
+        // 2. 右侧为其他类型
+        // let res2 = await 20;
+        // 3. if promise is rejected
+        try {
+          let res3 = await p;
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+
+      main();
+      // console.log(result);
     </script>
   </body>
 </html>
