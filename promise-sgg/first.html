@@ -15,18 +15,36 @@
 
     <script>
       // debugger;
-      let p = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          reject("error");
-          // reject("fail");
-        }, 1000);
-        // resolve("ok");
-        // reject("fail");
-        // throw "fassil";
-      });
-
+      // let p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("ok");
+      //     // reject("fail");
+      //   }, 1000);
+      //   // resolve("ok");
+      //   // reject("fail");
+      //   // throw "fassil";
+      // });
+      const p = Promise.resolve("ok");
+      console.log(p);
       // console.log(p);
 
+      // let res = p
+      //   .then((value) => {
+      //     console.log(111);
+      //   })
+      //   .then((value) => {
+      //     console.log(222);
+      //   })
+      //   .catch((reason) => {
+      //     console.warn(reason);
+      //   });
+      // console.log(
+      //   1,
+      //   p.then((value) => {
+      //     console.log(111);
+      //   })
+      // );
+      // console.log(2, res);
       // const res = p.then(
       //   (result) => {
       //     console.log(result);
@@ -41,9 +59,8 @@
       //     // throw "err";
       //     // console.warn(reason);
       //   }
-      );
 
-      console.log(res);
+      // console.log(res);
       // console.log(p);
     </script>
   </body>
